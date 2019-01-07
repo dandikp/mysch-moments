@@ -13,3 +13,7 @@ node_modules
 # LOGS #
 ########
 *.log
+
+# YARN LOCK #
+#############
+yarn.lock
