@@ -1,0 +1,15 @@
+# DIST DIRECTORY #
+##################
+dist
+
+# NODE MODULES #
+################
+node_modules
+
+# SASS CACEH #
+##############
+.sass-cache
+
+# LOGS #
+########
+*.log
