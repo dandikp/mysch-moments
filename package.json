@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "MySch v 2.0 First Theme",
   "main": "index.js",
-  "repository": "https://gitlab.com/dandikp/moments.git",
+  "repository": "https://github.com/dandikp/mysch-moments.git",
   "author": "Dandi Karunia Pratama <dandi.karunia@gmail.com>",
   "license": "MIT",
   "devDependencies": {
