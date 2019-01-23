@@ -1,0 +1,17 @@
+@import '0-utilities/0-utilities';
+
+$dirFonts: "../fonts/";
+
+// OpenSans Block
+@include font-face(OpenSans, $dirFonts + "OpenSans", null, normal, eot woff2 woff);
+@include font-face(OpenSans, $dirFonts + "OpenSans", null, italic, eot woff2 woff);
+@include font-face(OpenSans, $dirFonts + "OpenSans", 700, normal, eot woff2 woff);
+@include font-face(OpenSans, $dirFonts + "OpenSans", 700, italic, eot woff2 woff);
+
+// Nunito Block
+@include font-face(Nunito, $dirFonts + "Nunito", null, normal, eot woff2 woff);
+@include font-face(Nunito, $dirFonts + "Nunito", null, italic, eot woff2 woff);
+@include font-face(Nunito, $dirFonts + "Nunito", 600, normal, eot woff2 woff);
+@include font-face(Nunito, $dirFonts + "Nunito", 600, italic, eot woff2 woff);
+@include font-face(Nunito, $dirFonts + "Nunito", 700, normal, eot woff2 woff);
+@include font-face(Nunito, $dirFonts + "Nunito", 700, italic, eot woff2 woff);

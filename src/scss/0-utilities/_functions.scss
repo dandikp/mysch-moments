@@ -1,0 +1,17 @@
+@function str-replace($string, $find, $replace: '') {
+	$index: str-index($string, $find);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + str-replace(str-slice(string, $index + str-length($find)), $find, $replace);
+	}
+
+	@return $string;
+}
+
+@function capitalize($string) {
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+@function uncapitalize($string) {
+	@return to-lower-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
