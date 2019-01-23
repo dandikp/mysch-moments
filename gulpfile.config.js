@@ -1,16 +1,13 @@
 module.exports = {
-    develop: {
-        scss: './src/scss/*',
-        js: './src/js/main.js',
-        images: './src/images/**/*'
+    scss: {
+        dir: './src/scss/',
+        all: './src/scss/**/*.scss',
+        main: './src/scss/main.scss',
+        mains: './src/scss/*.scss',
     },
-    pre_build: {
-        css: './dist/css/*',
-        js: './dist/css/main.js',
-        images: './dist/images/**/*'
-    },
-    build: {
-        css: './dist/css/*.min.css',
-        js: './dist/css/main.min.js',
+    css: {
+        dir: './src/css/',
+        all: './src/css/*.css',
+        main: './src/css/main.css'
     }
 }
