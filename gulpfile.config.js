@@ -9,5 +9,10 @@ module.exports = {
         dir: './src/css/',
         all: './src/css/*.css',
         main: './src/css/main.css'
+    },
+    js: {
+        dir: './src/js/',
+        scripts: './src/js/scripts/*',
+        all: './src/js/scripts/**/*.js'
     }
 }

@@ -23,6 +23,8 @@ var sass = require('gulp-sass');
 	sass.compiler = require('node-sass');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
+var concat = require('gulp-concat');
+var count = require('gulp-count');
 var runSequence = require('run-sequence');
 
 /** === Develop Mode === */
@@ -33,13 +35,21 @@ gulp.task('compile:scss', function() {
 	];
 
 	return gulp.src(config.scss.mains)
-		.pipe(sass.sync().on('error', sass.logError))
+		.pipe(sass.sync({outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(postcss(postcssPlugs))
 		.pipe(gulp.dest(config.css.dir));
 });
 
+gulp.task('concatenate:js', function() {
+	return gulp.src(config.js.scripts)
+		.pipe(count('## files found'))
+		.pipe(concat('main.js', { newLine: ';' }))
+		.pipe(gulp.dest(config.js.dir));
+});
+
 gulp.task('watcher', function() {
 	gulp.watch(config.scss.all, gulp.series('compile:scss'));
+	gulp.watch(config.js.scripts, gulp.series('concatenate:js'));
 });
 
 gulp.task('develop', gulp.series('compile:scss', 'watcher'));
