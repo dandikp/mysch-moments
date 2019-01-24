@@ -1,0 +1,15 @@
+@keyframes move-down {
+	100%  {
+		transform: translateY(0);
+	}
+}
+
+@keyframes slide-right {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: 68%;
+	}
+}
