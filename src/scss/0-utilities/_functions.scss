@@ -15,3 +15,17 @@
 @function uncapitalize($string) {
 	@return to-lower-case(str-slice($string, 1, 1)) + str-slice($string, 2);
 }
+
+@function translate-media-condition($media-condition) {
+	$conditions : (
+		"screen": "only screen",
+		"print": "only print",
+		"onMobile": "(max-width: #{map-get($screen-breakpoints, "mobile")})",
+		"onTablet": "(max-width: #{map-get($screen-breakpoints, "tablet")})",
+		"onDesktop": "(max-width: #{map-get($screen-breakpoints, "desktop")})",
+		"onLargeDesktop": "(min-width: #{map-get($screen-breakpoints, "desktop") + 1px })",
+		"onWidescreen": "(min-width: #{map-get($screen-breakpoints, "widescreen")})"
+	);
+
+	@return map-get($conditions, $media-condition);
+}

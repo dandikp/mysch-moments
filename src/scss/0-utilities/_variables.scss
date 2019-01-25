@@ -1,45 +1,46 @@
+// Colors
 $white: #fff !default;
-$grey-100: #f9f7f7;
-$grey-200: #e3e3e3;
-$grey-300: #dfdfdf;
-$grey-400: #b8b0b0;
-$black: #212121 !default;
-$black-alt: rgba(0,0,0,.84);
+$black: #202124;
+$grey: #5f6368;
+$black-alt: #212121;
 
-$greys:  () !default;
+// Gradient 1
+$deep-purple: #673ab7;
+$deeper-purple: #512da8;
+// Gradient 2
+$violet: #ad5389;
+$more-deeper-purple: #3c1053;
+// Gradient 3
+$soft-violet: #8e2de2;
+$indigo: #4a00e0;
 
-$greys: map-merge(("100": $grey-100, "200": $grey-200, "300": $grey-300, "400": $grey-400), $greys);
-
-$violet-100: #742dd2;
-$violet-200: #481380;
-$purple-100: #c246c6;
-$purple-200: #91157e;
-$purple-300: #65195e;
-$blue: #dbd9ee;
-$blue-100: #3f72af; // 1
-$blue-200: #3e4e88;
-$blue-300: #1a2c5b;
-$blue-400: #112d4e; // 1
-
-$gradient-colors: () !default;
-
-$gradient-colors: map-merge((
-	"violet-100": $violet-100,
-	"violet-200": $violet-200,
-	"purple-100": $purple-100,
-	"purple-200": $purple-200,
-	"purple-300": $purple-300,
-	"blue": $blue,
-	"blue-100": $blue-100,
-	"blue-200": $blue-200,
-	"blue-300": $blue-300,
-	"blue-400": $blue-400
-), $gradient-colors);
-
-$background-color: $white;
+$body-color: $white;
 $link-color: $black-alt;
-$text-color: $black;
+$text-color: $grey;
 
+// Breakpoints
+$bp-gap: 64px;
+$mobile-bp: 576px;
 $tablet-bp: 769px;
-$desktop-bp: 960px;
-$widescreen-bp: 1218px;
+$desktop-bp: 960px + (2 * $bp-gap);
+$desktop-large-bp: 1088px + $bp-gap;
+$widescreen-bp: $desktop-large-bp + (2 * $bp-gap);
+$widescreen-enabled: true;
+
+$screen-breakpoints: () !default;
+
+$screen-breakpoints: map-merge((
+	"mobile": $mobile-bp,
+	"tablet": $tablet-bp,
+	"desktop": $desktop-bp,
+	"desktop-large": $desktop-large-bp,
+	"widescreen": $widescreen-bp
+), $screen-breakpoints);
+
+// Navigation
+$nav-height: 80px;
+$nav-scrolled-height: 70px;
+$nav-tablet-height: 70px;
+$nav-tablet-scrolled-height: 65px;
+$nav-mobile-height: 65px;
+$nav-mobile-scrolled-height: 60px;

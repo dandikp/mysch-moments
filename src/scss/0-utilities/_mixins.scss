@@ -28,3 +28,21 @@
 		src: $src;
 	}
 }
+
+@mixin media-query($media-conditions...) {
+	$query: '';
+
+	@each $media-condition in $media-conditions {
+		$operators: '';
+
+		@if ($query != '') {			
+			$operators: " and ";
+		}
+
+		$query: $query + $operators + translate-media-condition($media-condition);
+	}
+
+	@media #{$query} {
+		@content;
+	}
+}
