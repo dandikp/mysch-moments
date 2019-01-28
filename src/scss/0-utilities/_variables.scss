@@ -20,9 +20,12 @@ $text-color: $grey;
 
 // Breakpoints
 $bp-gap: 64px;
-$mobile-bp: 576px;
+$mobile-small-bp: 240px;
+$mobile-bp: 360px;
+$mobile-large-bp: 576px;
 $tablet-bp: 769px;
-$desktop-bp: 960px + (2 * $bp-gap);
+$tablet-large-bp: 960px;
+$desktop-bp: $tablet-large-bp + (2 * $bp-gap);
 $desktop-large-bp: 1088px + $bp-gap;
 $widescreen-bp: $desktop-large-bp + (2 * $bp-gap);
 $widescreen-enabled: true;
@@ -30,8 +33,11 @@ $widescreen-enabled: true;
 $screen-breakpoints: () !default;
 
 $screen-breakpoints: map-merge((
+	"mobile-small": $mobile-small-bp,
 	"mobile": $mobile-bp,
+	"mobile-large": $mobile-large-bp,
 	"tablet": $tablet-bp,
+	"tablet-large": $tablet-large-bp,
 	"desktop": $desktop-bp,
 	"desktop-large": $desktop-large-bp,
 	"widescreen": $widescreen-bp

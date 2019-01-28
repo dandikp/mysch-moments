@@ -20,8 +20,11 @@
 	$conditions : (
 		"screen": "only screen",
 		"print": "only print",
+		"onSmallMobile": "(max-width: #{map-get($screen-breakpoints, "mobile-small")})",
 		"onMobile": "(max-width: #{map-get($screen-breakpoints, "mobile")})",
+		"onLargeMobile": "(max-width: #{map-get($screen-breakpoints, "mobile-large")})",
 		"onTablet": "(max-width: #{map-get($screen-breakpoints, "tablet")})",
+		"onLargeTablet": "(max-width: #{map-get($screen-breakpoints, "tablet-large")})",
 		"onDesktop": "(max-width: #{map-get($screen-breakpoints, "desktop")})",
 		"onLargeDesktop": "(min-width: #{map-get($screen-breakpoints, "desktop") + 1px })",
 		"onWidescreen": "(min-width: #{map-get($screen-breakpoints, "widescreen")})"
