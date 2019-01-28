@@ -8,8 +8,9 @@
 	var mobileSearchButton = document.getElementsByClassName('mobile-search-button')[0];
 	var searchButton = document.getElementsByClassName('search-button')[0];
 	var searchWrapper = document.getElementsByClassName('search-form--wrapper')[0];
-	var logo = document.getElementsByClassName('main-logo--image__normal')[0];
-	var logoSticky = document.getElementsByClassName('main-logo--image__sticky')[0];
+	var searchInput = document.getElementById('js-search-el');
+	var logo = document.getElementsByClassName('main-logo--image normal')[0];
+	var logoSticky = document.getElementsByClassName('main-logo--image sticky')[0];
 	var stickyHeaderPos = 152;
 
 	// window.scroll({
@@ -22,14 +23,14 @@
 		let scrollPos = window.scrollY;
 
 		if (scrollPos  >= stickyHeaderPos) {
-			lHeaderWrapper.classList.add('l-header--wrapper__sticky');
+			lHeaderWrapper.classList.add('sticky');
 
 			logo.style.display = 'none';
 			logoSticky.style.display = 'block';
 
-
+			searchInput.select();
 		} else {
-			lHeaderWrapper.classList.remove('l-header--wrapper__sticky');
+			lHeaderWrapper.classList.remove('sticky');
 
 			logo.style.display = 'block';
 			logoSticky.style.display = 'none';
