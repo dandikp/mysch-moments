@@ -1,3 +1,4 @@
+// Header Event
 (function() {
 	'use strict';
 
@@ -9,13 +10,13 @@
 	var searchWrapper = document.getElementsByClassName('search-form--wrapper')[0];
 	var logo = document.getElementsByClassName('main-logo--image__normal')[0];
 	var logoSticky = document.getElementsByClassName('main-logo--image__sticky')[0];
-	var stickyHeaderPos = 128;
+	var stickyHeaderPos = 152;
 
-	window.scroll({
-		top: 0,
-		let: 0,
-		behavior: 'smooth'
-	});
+	// window.scroll({
+	// 	top: 0,
+	// 	let: 0,
+	// 	behavior: 'smooth'
+	// });
 
 	window.addEventListener('scroll', function () {
 		let scrollPos = window.scrollY;
