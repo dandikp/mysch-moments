@@ -38,7 +38,7 @@
 			height: $nav-mobile-height;
 		}
 		
-		&__sticky {
+		&.sticky {
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -110,15 +110,11 @@
 			margin: 0 auto;
 			height: 100%;
 
-			&__normal {
+			&.normal {
 				display: block;
 			}
 
-			&__sticky {
-				display: none;
-			}
-
-			&__mobile {
+			&.sticky {
 				display: none;
 			}
 		}
