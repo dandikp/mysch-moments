@@ -27,8 +27,6 @@
 
 			logo.style.display = 'none';
 			logoSticky.style.display = 'block';
-
-			searchInput.select();
 		} else {
 			lHeaderWrapper.classList.remove('sticky');
 
@@ -44,6 +42,30 @@
 			searchWrapper.classList.remove('active');
 		} else {
 			searchWrapper.classList.add('active');
+			
+			searchInput.focus();
+		}
+	});
+
+	mobileSearchButton.addEventListener('click', function () {
+		let isActive = searchWrapper.classList.contains('active');
+
+		if (isActive) {
+			searchWrapper.classList.remove('active');
+		} else {
+			searchWrapper.classList.add('active');
+			
+			searchInput.focus();
+		}
+	});
+
+	mobileMenuButton.addEventListener('click', function () {
+		let hamburgerIsActive = mobileMenuButton.classList.contains('active');
+
+		if (hamburgerIsActive) {
+			mobileMenuButton.classList.remove('active');
+		} else {
+			mobileMenuButton.classList.add('active');
 		}
 	})
 })();

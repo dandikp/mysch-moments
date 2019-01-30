@@ -30,6 +30,10 @@ a {
 	color: $white;
 }
 
+input, textarea {
+	outline: none;
+}
+
 .screen-reader-text, .screen-reader-text {
 	position: absolute;
 	clip: rect(0, 0, 0, 0);

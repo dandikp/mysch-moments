@@ -30,11 +30,16 @@
 		align-items: center;
 		transition: transform .2s linear;
 
-		@include media-query("screen", "onTablet") {
+		* {
+			z-index: inherit;
+		}
+
+		@include media-query("screen", "onLargeTablet") {
 			height: $nav-tablet-height;
+			color: $more-deeper-purple;
 		}
 	
-		@include media-query("screen", "onMobile") {
+		@include media-query("screen", "onLargeMobile") {
 			height: $nav-mobile-height;
 		}
 		
@@ -52,6 +57,14 @@
 			color: $more-deeper-purple !important;
 			height: $nav-scrolled-height;
 
+			@include media-query("screen", "onLargeTablet") {
+				height: $nav-tablet-scrolled-height;
+			}
+		
+			@include media-query("screen", "onLargeMobile") {
+				height: $nav-mobile-scrolled-height;
+			}
+
 			.main-nav .nav-menu > li > a {
 				&.active-link {
 					&::after {
@@ -66,14 +79,32 @@
 
 			.main-logo--container {
 				padding: 23px 0 !important;
+
+				@include media-query("screen", "onLargeMobile") {
+					padding: 19.5px 0 !important;
+				}
 			}
 
-			.search-button {
+			.mobile-search-button, .search-button {
 				box-shadow: 0 1px 3px $deep-purple;
 			}
 
 			.search-form--wrapper {
 				top: $nav-scrolled-height !important;
+
+				@include media-query("screen", "onLargeMobile") {
+					top: $nav-mobile-scrolled-height !important;
+				}
+			}
+
+			.mobile-nav-button {
+				&::before {
+					background-color: $deeper-purple !important;
+				}
+
+				&::after {
+					background-color: $deeper-purple !important;
+				}
 			}
 		}		
 	}
@@ -89,9 +120,13 @@
 		display: flex;
 		align-items: center;
 
-		@include media-query("screen", "onTablet") {
+		@include media-query("screen", "onLargeTablet") {
 			flex: 1 0 80%;
-			padding: 0 0 0 10px;
+			padding: 0 10px 0 20px;
+		}
+
+		@include media-query("screen", "onLargeMobile") {
+			flex: 1 0 60%;
 		}
 
 		&--container {
@@ -99,9 +134,8 @@
 			display: block;
 			padding: 28px 0;
 
-			@include media-query("screen", "onTablet") {
-				padding: 20px 0;
-				height: 100%;
+			@include media-query("screen", "onLargeMobile") {
+				padding: 22px 0;
 			}
 		}
 
@@ -125,8 +159,23 @@
 		padding: 0 20px 0 30px;
 		color: inherit;
 
-		@include media-query("screen", "onTablet") {
-			display: none;
+		.blurry-svg {
+			display: block;
+			height: 0;
+		}
+
+		@include media-query("screen", "onLargeTablet") {
+			position: relative;
+			z-index: 80;
+			flex: 0;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			padding-top: $nav-tablet-scrolled-height;			
+			background: $white;
+			opacity: .85;
+			height: 95vh;
+			position: fixed;
 		}
 
 		.nav-section {
@@ -135,8 +184,15 @@
 
 		.nav-menu {
 			display: flex;
+			flex-wrap: nowrap;
 			align-items: center;
 			height: 100%;
+
+			@include media-query("screen", "onLargeTablet") {
+				flex-flow: column nowrap;
+				align-items: flex-end;
+				font-size: 1.2rem;
+			}
 
 			> li {
 				flex: auto;
@@ -145,6 +201,11 @@
 				display: flex;
 				align-items: center;
 				justify-content: flex-start;
+
+				@include media-query("screen", "onLargeTablet") {
+					height: auto;
+					padding: 10px 0;
+				}
 
 				&.dropdown-menu--wrapper {
 					flex-direction: column;
@@ -158,6 +219,7 @@
 						transform: scaleY(1);
 						transition-delay: 0s, 0s, .3s;
 					}
+					
 				}
 
 				> a {
@@ -212,7 +274,6 @@
 				display: flex;
 				flex-flow: column nowrap;
 				box-shadow: 0 2px 3px $grey;
-				// transform: translateY(-15px);
 				transform: scaleY(0);
 				transform-origin: 0 0 0;
 				visibility: hidden;
@@ -296,23 +357,143 @@
 	}
 
 	.mobile-actions {
-		display: none;
 		margin-left: auto;
+		height: 100%;
+		padding: 0 20px 0 0;
+		display: none;
+
+		.mobile-search-button {
+			position: relative;
+			border-radius: 1142px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 28px;
+			width: 47px;
+			background: $white;
+			border-radius: 1142px;
+			cursor: pointer;
+
+			.mobile-search-icon {
+				display: block;
+				width: 15px;
+				height: 15px;
+				margin: 0 auto;
+			}
+		}
+
+		.mobile-nav-button {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0 3px;
+			cursor: pointer;
+
+			&.active {
+				&::before {
+					transform: rotate(45deg) translateY(5px);
+				}
+
+				&::after {
+					transform: rotate(-45deg) translateY(-5px);
+				}
+			}
+
+			&::before {
+				display: block;
+				content: '';
+				background-color: $white;
+				height: 2px;
+				border-radius: 10px;
+				transition: all .4s cubic-bezier(0.86, 0, 0.07, 1);
+			}
+
+			&::after {
+				display: block;
+				content: '';
+				margin-top: 5px;
+				background-color: $white;
+				height: 2px;
+				border-radius: 10px;
+				transition: all .4s cubic-bezier(0.86, 0, 0.07, 1);
+			}
+		}
+
+		@include media-query ("screen", "onLargeMobile") {
+			flex: 1 0 30%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-flow: row nowrap;
+
+			.mobile-nav-button {
+				&.active {
+					&::after {
+						width: 30px;
+					}
+				}
+
+				&::before {
+					width: 30px;
+				}
+
+				&::after {
+					width: 20px;
+				}
+			}
+		}
+
+		@include media-query ("screen", "onMobile") {
+			.mobile-search-button {
+				height: 23px;
+				width: 38px;
+
+				.mobile-search-icon {
+					height: 12px;
+					width: 12px;
+				}
+			}
+
+			.mobile-nav-button {
+
+				&.active {
+					&::after {
+						width: 25px;
+					}
+				}
+
+				&::before {
+					width: 25px;
+				}
+
+				&::after {
+					width: 15px;
+				}
+			}
+		}
 	}
 
 	.search-area {
 		flex: 1 0 14%;
 		padding-right: 65px;
 
-		@include media-query("screen", "onTablet") {
-			display: none;
+		@include media-query("screen", "onLargeTablet") {
+			visibility: hidden;
+			flex: 0 0 0;
+			padding: 0;
 		}
 
 		&--container {
 			box-sizing: border-box;
 			height: 32px;
 			width: 100%;
-			border-radius: 11124px;
+			// border-radius: 11124px;
+			
+			@include media-query("screen", "onLargeTablet") {
+				visibility: hidden;
+				width: 0;
+			}
 		}
 
 		.search-button {
@@ -342,9 +523,14 @@
 			width: 100%;
 			height: 100%;
 			padding: 10px 65px;
+			z-index: 120;
 
 			@include media-query("screen", "onWidescreen") {
 				max-width: map-get($screen-breakpoints, "widescreen");
+			}
+
+			@include media-query("screen", "onLargeTablet") {
+				padding: 10px 20px;
 			}
 
 			&--wrapper {
@@ -360,6 +546,10 @@
 				opacity: .91;
 				visibility: hidden;
 				transition: all .4s ease-in-out, visibility 0s linear .4s;
+
+				@include media-query("screen", "onLargeMobile") {
+					top: $nav-mobile-height;
+				}
 
 				&.active {
 					right: 0;
