@@ -476,6 +476,18 @@ input, textarea {
   }
 }
 
+@media only screen and (max-width: 576px) {
+  .l-header .main-nav .nav-menu {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .l-header .main-nav .nav-menu {
+    font-size: .97rem;
+  }
+}
+
 .l-header .main-nav .nav-menu > li {
   -webkit-box-flex: 1;
       -ms-flex: auto;

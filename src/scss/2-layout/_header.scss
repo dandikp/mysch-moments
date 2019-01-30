@@ -222,6 +222,14 @@
 				overflow-y: auto;
 			}
 
+			@include media-query("screen", "onLargeMobile") {
+				font-size: 1rem;
+			}
+
+			@include media-query("screen", "onLargeMobile") {
+				font-size: .97rem;
+			}
+
 			> li {
 				flex: auto;
 				height: $nav-height;
