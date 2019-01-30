@@ -292,9 +292,15 @@ input, textarea {
   padding: 23px 0 !important;
 }
 
+@media only screen and (max-width: 960px) {
+  .l-header--wrapper.sticky .main-logo--container {
+    padding: 21.5px 0 !important;
+  }
+}
+
 @media only screen and (max-width: 576px) {
   .l-header--wrapper.sticky .main-logo--container {
-    padding: 19.5px 0 !important;
+    padding: 20px 0 !important;
   }
 }
 

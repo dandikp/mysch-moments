@@ -80,8 +80,12 @@
 			.main-logo--container {
 				padding: 23px 0 !important;
 
+				@include media-query("screen", "onLargeTablet") {
+					padding: 21.5px 0 !important;
+				}
+
 				@include media-query("screen", "onLargeMobile") {
-					padding: 19.5px 0 !important;
+					padding: 20px 0 !important;
 				}
 			}
 
