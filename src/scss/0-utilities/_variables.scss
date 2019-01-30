@@ -50,3 +50,8 @@ $nav-tablet-height: 70px;
 $nav-tablet-scrolled-height: 65px;
 $nav-mobile-height: 65px;
 $nav-mobile-scrolled-height: 60px;
+
+// Animation
+$animation-time-method: cubic-bezier(0.86, 0, 0.07, 1);
+$animation-duration: .4s;
+$animation-method: $animation-duration $animation-time-method;
