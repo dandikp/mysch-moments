@@ -142,6 +142,10 @@
 			display: block;
 			padding: 28px 0;
 
+			@include media-query("screen", "onLargeTablet") {
+				padding: 24px 0;
+			}
+
 			@include media-query("screen", "onLargeMobile") {
 				padding: 22px 0;
 			}
@@ -305,7 +309,7 @@
 						opacity: .6;
 						border-radius: 12px;
 						width: 0;
-						transition: all .4s ease-in-out;
+						transition: all .6s $animation-time-method;
 						
 						@include media-query("screen", "onLargeTablet") {
 							transform: translateX(-120%);
