@@ -177,7 +177,7 @@
 			background: $white;
 			opacity: .85;
 			height: 95vh;
-			transition: all .4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) .4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) .1s;
+			transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method .1s;
 
 			&.mobileMenuWasOpened {
 				z-index: 80;
@@ -277,7 +277,7 @@
 					justify-content: center;
 					align-content: center;
 					text-align: center;
-					transition: all .4s ease;
+					transition: all .4s $animation-time-method;
 					color: inherit;
 
 					@include media-query("screen", "onLargeTablet") {
@@ -302,6 +302,10 @@
 						@include media-query("screen", "onLargeTablet") {
 							transform: translateX(-120%);
 							margin-right: 3px;
+						}
+
+						@include media-query("screen", "onLargeMobile") {
+							bottom: 8px;
 						}
 					}
 
@@ -475,7 +479,7 @@
 				background-color: $white;
 				height: 2px;
 				border-radius: 10px;
-				transition: all .4s cubic-bezier(0.86, 0, 0.07, 1);
+				transition: all $animation-method;
 			}
 
 			&::after {
@@ -485,7 +489,7 @@
 				background-color: $white;
 				height: 2px;
 				border-radius: 10px;
-				transition: all .4s cubic-bezier(0.86, 0, 0.07, 1);
+				transition: all $animation-method;
 			}
 		}
 
@@ -596,7 +600,7 @@
 			background-color: $white;
 			border-radius: 11124px;
 			cursor: pointer;
-			transition: width .1s linear;
+			transition: width .1s $animation-time-method;
 
 			&:hover {
 				width: 63px;
@@ -636,7 +640,7 @@
 				height: 63px;
 				opacity: .91;
 				visibility: hidden;
-				transition: all .4s ease-in-out, visibility 0s linear .4s;
+				transition: all .4s $animation-time-method, visibility 0s $animation-time-method .4s;
 
 				@include media-query("screen", "onLargeMobile") {
 					top: $nav-mobile-height;

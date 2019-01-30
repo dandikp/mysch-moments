@@ -571,8 +571,8 @@ input, textarea {
   -ms-flex-line-pack: center;
       align-content: center;
   text-align: center;
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
   color: inherit;
 }
 
@@ -608,6 +608,12 @@ input, textarea {
     -webkit-transform: translateX(-120%);
             transform: translateX(-120%);
     margin-right: 3px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .l-header .main-nav .nav-menu > li > a::after, .l-header .main-nav .nav-menu > li > a:hover::after {
+    bottom: 8px;
   }
 }
 
@@ -948,8 +954,8 @@ input, textarea {
   background-color: #fff;
   border-radius: 11124px;
   cursor: pointer;
-  -webkit-transition: width .1s linear;
-  transition: width .1s linear;
+  -webkit-transition: width 0.1s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: width 0.1s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 .l-header .search-area .search-button:hover {
@@ -1000,8 +1006,8 @@ input, textarea {
   height: 63px;
   opacity: .91;
   visibility: hidden;
-  -webkit-transition: all .4s ease-in-out, visibility 0s linear .4s;
-  transition: all .4s ease-in-out, visibility 0s linear .4s;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s;
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s;
 }
 
 @media only screen and (max-width: 576px) {
