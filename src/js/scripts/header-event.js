@@ -2,8 +2,10 @@
 (function() {
 	'use strict';
 
+	var mainContent = document.body;
 	var lHeaderWrapper = document.getElementsByClassName('l-header--wrapper')[0];
 	var lHeader = document.getElementById('js-l-header');
+	var mainNavigation = document.getElementById('js-main-nav');
 	var mobileMenuButton = document.getElementsByClassName('mobile-nav-button')[0];
 	var mobileSearchButton = document.getElementsByClassName('mobile-search-button')[0];
 	var searchButton = document.getElementsByClassName('search-button')[0];
@@ -61,11 +63,22 @@
 
 	mobileMenuButton.addEventListener('click', function () {
 		let hamburgerIsActive = mobileMenuButton.classList.contains('active');
+		let headerIsSticky = lHeaderWrapper.classList.contains('sticky');
 
 		if (hamburgerIsActive) {
 			mobileMenuButton.classList.remove('active');
+			mainContent.classList.remove('mobileMenuWasOpened');
+			mainNavigation.classList.remove('mobileMenuWasOpened');
 		} else {
 			mobileMenuButton.classList.add('active');
+			mainContent.classList.add('mobileMenuWasOpened');
+			mainNavigation.classList.add('mobileMenuWasOpened');
+
+			if (!headerIsSticky) {
+				lHeaderWrapper.classList.add('sticky');
+				logo.style.display = 'none';
+				logoSticky.style.display = 'block';
+			}
 		}
 	})
 })();

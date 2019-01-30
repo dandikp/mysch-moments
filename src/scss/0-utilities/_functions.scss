@@ -27,7 +27,8 @@
 		"onLargeTablet": "(max-width: #{map-get($screen-breakpoints, "tablet-large")})",
 		"onDesktop": "(max-width: #{map-get($screen-breakpoints, "desktop")})",
 		"onLargeDesktop": "(min-width: #{map-get($screen-breakpoints, "desktop") + 1px })",
-		"onWidescreen": "(min-width: #{map-get($screen-breakpoints, "widescreen")})"
+		"onWidescreen": "(min-width: #{map-get($screen-breakpoints, "widescreen")})",
+		"onlyDesktop": "(min-width: #{map-get($screen-breakpoints, "desktop")})"
 	);
 
 	@return map-get($conditions, $media-condition);

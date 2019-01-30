@@ -18,6 +18,14 @@ body {
 	background: $body-color;
 	padding: 0;
 	color: $text-color;
+
+	&.mobileMenuWasOpened {
+		position: fixed;
+		overflow: hidden;
+		height: auto;
+		width: 100%;
+		z-index: 0;
+	}
 }
 
 a {
