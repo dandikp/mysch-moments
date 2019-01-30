@@ -92,6 +92,10 @@
 			.search-form--wrapper {
 				top: $nav-scrolled-height !important;
 
+				@include media-query("screen", "onLargeTablet") {
+					top: $nav-tablet-scrolled-height !important;
+				}
+
 				@include media-query("screen", "onLargeMobile") {
 					top: $nav-mobile-scrolled-height !important;
 				}
