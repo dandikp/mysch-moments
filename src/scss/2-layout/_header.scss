@@ -199,6 +199,10 @@
 			}
 		}
 
+		@include media-query("screen", "onLargeMobile") {
+			padding-top: $nav-mobile-scrolled-height;
+		}
+
 		.nav-section {
 			display: block;
 		}
@@ -477,12 +481,34 @@
 			}
 		}
 
-		@include media-query ("screen", "onLargeMobile") {
-			flex: 1 0 30%;
+		@include media-query ("screen", "onLargeTablet") {
+			flex: 1 0 20%;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			flex-flow: row nowrap;
+
+			.mobile-nav-button {
+				&.active {
+					&::after {
+						width: 37px;
+					}
+				}
+
+				&::before {
+					width: 37px;
+				}
+
+				&::after {
+					width: 27px;
+				}
+			}
+
+
+		}
+
+		@include media-query ("screen", "onLargeMobile") {
+			flex: 1 0 30%;
 
 			.mobile-nav-button {
 				&.active {
