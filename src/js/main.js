@@ -13,6 +13,7 @@
 	var searchInput = document.getElementById('js-search-el');
 	var logo = document.getElementsByClassName('main-logo--image normal')[0];
 	var logoSticky = document.getElementsByClassName('main-logo--image sticky')[0];
+	var submenuLink = document.querySelector('.dropdown-menu--wrapper');
 	var stickyHeaderPos = 152;
 
 	// window.scroll({
@@ -80,5 +81,17 @@
 				logoSticky.style.display = 'block';
 			}
 		}
-	})
+	});
+
+	submenuLink.addEventListener('click', function (event) {
+		let isActive = submenuLink.childNodes[3].classList.contains('active');
+
+		if (isActive) {
+			submenuLink.childNodes[3].classList.remove('active');
+		} else {
+			submenuLink.childNodes[3].classList.add('active');
+		}
+
+		event.preventDefault();
+	});
 })();

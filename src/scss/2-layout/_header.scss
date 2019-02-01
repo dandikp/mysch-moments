@@ -7,7 +7,7 @@
 	align-items: center;
 	justify-self: center;
 	align-self: center;
-	animation: none;
+	animation: initial;
 	font-family: "Nunito", "OpenSans", Arial, Helvetica, sans-serif;
 	font-weight: 600;
 	font-size: 1rem;
@@ -185,7 +185,7 @@
 			top: 0;
 			flex: 0;
 			width: 100%;
-			padding-top: $nav-tablet-scrolled-height;
+			padding: $nav-tablet-scrolled-height 30px 0 40px;
 			background: $white;
 			opacity: .85;
 			height: 95vh;
@@ -212,7 +212,7 @@
 		}
 
 		@include media-query("screen", "onLargeMobile") {
-			padding-top: $nav-mobile-scrolled-height;
+			padding: $nav-tablet-scrolled-height 20px 0 25px;
 		}
 
 		.nav-section {
@@ -305,7 +305,7 @@
 						content: '';
 						margin-left: 1px;
 						height: 2px;
-						background: none;
+						background: initial;
 						opacity: .6;
 						border-radius: 12px;
 						width: 0;
@@ -358,11 +358,25 @@
 				transform-origin: 0 0 0;
 				visibility: hidden;
 				z-index: -10;
-				transition: all .4s ease-in-out, visibility 0s linear .4s, z-index 0s linear 0.01s;
+				transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method 0.01s;
 
 				@include media-query("screen", "onLargeTablet") {
-					position: absolute;
-					top: 0px;
+					margin-top: 15px;
+					width: 100%;
+					padding: 5px 0;
+					border-top: 1px solid $more-deeper-purple;
+					box-shadow: initial;
+					opacity: .9;
+					transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method 0.01s, position .4s $animation-time-method .4s;
+
+					&.active {
+						position: initial;
+						visibility: visible;
+						opacity: 1;
+						z-index: 150;
+						transform: scaleY(1);
+						transition-delay: 0s, 0s, .3s;
+					}
 				}
 
 				li {
@@ -372,8 +386,13 @@
 					position: relative;
 					vertical-align: top;
 
+					@include media-query("screen", "onLargeTablet") {
+						display: flex;
+						justify-content: flex-end;
+					}
+
 					&:last-child > a {
-						border-bottom: none;
+						border-bottom: initial;
 					}
 
 					&.dropdown-submenu--wrapper {
@@ -381,12 +400,18 @@
 						align-items: flex-start;
 						justify-content: center;
 
-						&:hover .dropdown-submenu, &:focus .dropdown-submenu, &:focus-within .dropdown-menu {
-							visibility: visible;
-							opacity: 1;
-							z-index: 160;
-							transform: scaleY(1);
-							transition-delay: 0s, 0s, .3s;
+						@include media-query("screen", "onlyDesktop") {
+							&:hover .dropdown-submenu, &:focus .dropdown-submenu, &:focus-within .dropdown-menu {
+								visibility: visible;
+								opacity: 1;
+								z-index: 160;
+								transform: scaleY(1);
+								transition-delay: 0s, 0s, .3s;
+							}
+						}
+
+						@include media-query("screen", "onLargeTablet") {
+							align-items: flex-end;
 						}
 
 						> a {
@@ -399,6 +424,12 @@
 								background-size: 100% 100%;
 								width: 10px;
 								height: 10px;
+
+								@include media-query("screen", "onLargeTablet") {
+									transform: rotate(90deg);
+									right: initial;
+									left: 5px;
+								}
 							}
 						}
 					}
@@ -413,9 +444,22 @@
 					border-bottom: 1px solid $deep-purple;
 					transition: all .1s linear;
 
-					&:hover {
-						padding-left: 5px;
-						color: $violet;
+					@include media-query("screen", "onLargeTablet") {
+						margin: 0;
+						border-bottom: initial;
+						font-size: 1.07rem;
+						font-weight: 400;
+					}
+
+					@include media-query("screen", "onLargeMobile") {
+						font-size: .94rem;
+					}
+
+					@include media-query("screen", "onlyDesktop") {
+						&:hover {
+							padding-left: 5px;
+							color: $violet;
+						}
 					}
 				}
 
@@ -595,7 +639,6 @@
 			box-sizing: border-box;
 			height: 32px;
 			width: 100%;
-			// border-radius: 11124px;
 			
 			@include media-query("screen", "onLargeTablet") {
 				visibility: hidden;

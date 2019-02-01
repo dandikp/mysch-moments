@@ -197,8 +197,8 @@ input, textarea {
   justify-self: center;
   -ms-flex-item-align: center;
       align-self: center;
-  -webkit-animation: none;
-          animation: none;
+  -webkit-animation: initial;
+          animation: initial;
   font-family: "Nunito", "OpenSans", Arial, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 1rem;
@@ -428,7 +428,7 @@ input, textarea {
         -ms-flex: 0;
             flex: 0;
     width: 100%;
-    padding-top: 65px;
+    padding: 65px 30px 0 40px;
     background: #fff;
     opacity: .85;
     height: 95vh;
@@ -458,7 +458,7 @@ input, textarea {
 
 @media only screen and (max-width: 576px) {
   .l-header .main-nav {
-    padding-top: 60px;
+    padding: 65px 20px 0 25px;
   }
 }
 
@@ -613,7 +613,7 @@ input, textarea {
   content: '';
   margin-left: 1px;
   height: 2px;
-  background: none;
+  background: initial;
   opacity: .6;
   border-radius: 12px;
   width: 0;
@@ -680,14 +680,31 @@ input, textarea {
           transform-origin: 0 0 0;
   visibility: hidden;
   z-index: -10;
-  -webkit-transition: all .4s ease-in-out, visibility 0s linear .4s, z-index 0s linear 0.01s;
-  transition: all .4s ease-in-out, visibility 0s linear .4s, z-index 0s linear 0.01s;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) 0.01s;
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) 0.01s;
 }
 
 @media only screen and (max-width: 960px) {
   .l-header .main-nav .nav-menu .dropdown-menu {
-    position: absolute;
-    top: 0px;
+    margin-top: 15px;
+    width: 100%;
+    padding: 5px 0;
+    border-top: 1px solid #3c1053;
+    -webkit-box-shadow: initial;
+            box-shadow: initial;
+    opacity: .9;
+    -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) 0.01s, position 0.4s cubic-bezier(0.86, 0, 0.07, 1) 0.4s;
+    transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) 0.01s, position 0.4s cubic-bezier(0.86, 0, 0.07, 1) 0.4s;
+  }
+  .l-header .main-nav .nav-menu .dropdown-menu.active {
+    position: initial;
+    visibility: visible;
+    opacity: 1;
+    z-index: 150;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transition-delay: 0s, 0s, .3s;
+            transition-delay: 0s, 0s, .3s;
   }
 }
 
@@ -699,8 +716,19 @@ input, textarea {
   vertical-align: top;
 }
 
+@media only screen and (max-width: 960px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+
 .l-header .main-nav .nav-menu .dropdown-menu li:last-child > a {
-  border-bottom: none;
+  border-bottom: initial;
 }
 
 .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper {
@@ -716,14 +744,24 @@ input, textarea {
           justify-content: center;
 }
 
-.l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper:hover .dropdown-submenu, .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper:focus .dropdown-submenu, .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper:focus-within .dropdown-menu {
-  visibility: visible;
-  opacity: 1;
-  z-index: 160;
-  -webkit-transform: scaleY(1);
-          transform: scaleY(1);
-  -webkit-transition-delay: 0s, 0s, .3s;
-          transition-delay: 0s, 0s, .3s;
+@media only screen and (min-width: 1088px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper:hover .dropdown-submenu, .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper:focus .dropdown-submenu, .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper:focus-within .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    z-index: 160;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transition-delay: 0s, 0s, .3s;
+            transition-delay: 0s, 0s, .3s;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
 }
 
 .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper > a::after {
@@ -737,6 +775,15 @@ input, textarea {
   height: 10px;
 }
 
+@media only screen and (max-width: 960px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper > a::after {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    right: initial;
+    left: 5px;
+  }
+}
+
 .l-header .main-nav .nav-menu .dropdown-menu li a {
   color: #3c1053;
   display: block;
@@ -748,9 +795,26 @@ input, textarea {
   transition: all .1s linear;
 }
 
-.l-header .main-nav .nav-menu .dropdown-menu li a:hover {
-  padding-left: 5px;
-  color: #ad5389;
+@media only screen and (max-width: 960px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li a {
+    margin: 0;
+    border-bottom: initial;
+    font-size: 1.07rem;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li a {
+    font-size: .94rem;
+  }
+}
+
+@media only screen and (min-width: 1088px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li a:hover {
+    padding-left: 5px;
+    color: #ad5389;
+  }
 }
 
 .l-header .main-nav .nav-menu .dropdown-menu .dropdown-submenu {
