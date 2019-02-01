@@ -232,6 +232,7 @@
 				margin: 18px 0 15px;
 				max-height: 75vh;
 				overflow-y: auto;
+				overflow-x: hidden;
 			}
 
 			@include media-query("screen", "onLargeMobile") {
@@ -263,6 +264,7 @@
 					justify-content: center;
 
 					@include media-query("screen", "onLargeTablet") {
+						position: relative;
 						height: auto;
 						padding: 10px 0;
 						width: 100%;
@@ -361,6 +363,8 @@
 				transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method 0.01s;
 
 				@include media-query("screen", "onLargeTablet") {
+					top: 0;
+					left: 120%;
 					margin-top: 15px;
 					width: 100%;
 					padding: 5px 0;
@@ -408,6 +412,7 @@
 
 						@include media-query("screen", "onlyDesktop") {
 							&:hover .dropdown-submenu, &:focus .dropdown-submenu, &:focus-within .dropdown-menu {
+								position: relative;
 								visibility: visible;
 								opacity: 1;
 								z-index: 160;
@@ -420,6 +425,7 @@
 							height: auto;
 							width: 100%;
 							align-items: flex-end;
+							position: relative;
 						}
 
 						> a {
@@ -437,10 +443,15 @@
 									transform: rotate(180deg);
 									right: initial;
 									left: 5px;
+									transition: all $animation-method;
+								}
+							}							
+						}
 
-									&.active {
-										transform: rotate(90deg);
-									}
+						@include media-query("screen", "onLargeTablet") {
+							&.active {
+								> a::after {
+									transform: rotate(90deg);
 								}
 							}
 						}
@@ -494,7 +505,10 @@
 					transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method 0.01s;
 
 					@include media-query("screen", "onLargeTablet") {
-						margin-top: 2px;
+						top: 0;
+						left: 120%;
+						margin-top: 5px;
+						padding: 5px 0;
 						width: 100%;
 						padding: 0;
 						border-top: 1px solid $more-deeper-purple;
@@ -502,9 +516,10 @@
 						opacity: .9;
 	
 						&.active {
+							z-index: 160;
 							position: static;
-							visibility: visible;
 							transform: scaleY(1);
+							visibility: visible;
 							transition-delay: 0s, 0s, .3s;
 						}
 					}

@@ -14,6 +14,7 @@
 	var logo = document.getElementsByClassName('main-logo--image normal')[0];
 	var logoSticky = document.getElementsByClassName('main-logo--image sticky')[0];
 	var submenuLink = document.getElementsByClassName('dropdown-menu--wrapper');
+	var subSubmenuLink = document.getElementsByClassName('dropdown-submenu--wrapper');
 	var stickyHeaderPos = 152;
 
 	window.addEventListener('scroll', function () {
@@ -88,6 +89,25 @@
 				dropdownMenu.classList.remove('active');
 			} else {
 				dropdownMenu.classList.add('active');
+			}
+			
+			event.preventDefault();
+		});
+	});
+
+	Array.prototype.forEach.call(subSubmenuLink, function(el, index, array){
+		let triggerButton = el.childNodes[1];
+		let dropdownMenu = el.childNodes[3];
+
+		triggerButton.addEventListener('click', function (event) {
+			let isActive = dropdownMenu.classList.contains('active');
+	
+			if (isActive) {
+				dropdownMenu.classList.remove('active');
+				el.classList.remove('active');
+			} else {
+				dropdownMenu.classList.add('active');
+				el.classList.add('active');
 			}
 			
 			event.preventDefault();
