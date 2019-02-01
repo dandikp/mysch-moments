@@ -367,10 +367,9 @@
 					border-top: 1px solid $more-deeper-purple;
 					box-shadow: initial;
 					opacity: .9;
-					transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method 0.01s, position .4s $animation-time-method .4s;
 
 					&.active {
-						position: initial;
+						position: static;
 						visibility: visible;
 						opacity: 1;
 						z-index: 150;
@@ -389,6 +388,7 @@
 					@include media-query("screen", "onLargeTablet") {
 						display: flex;
 						justify-content: flex-end;
+						padding-right: 10px;
 					}
 
 					&:last-child > a {
