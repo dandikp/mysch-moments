@@ -795,6 +795,10 @@ input, textarea {
     right: initial;
     left: 5px;
   }
+  .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper > a::after.active {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
 }
 
 .l-header .main-nav .nav-menu .dropdown-menu li a {
@@ -860,18 +864,13 @@ input, textarea {
 
 @media only screen and (max-width: 960px) {
   .l-header .main-nav .nav-menu .dropdown-menu .dropdown-submenu {
-    margin-top: 0;
+    margin-top: 2px;
     width: 100%;
     padding: 0;
     border-top: 1px solid #3c1053;
     -webkit-box-shadow: initial;
             box-shadow: initial;
     opacity: .9;
-    position: static;
-    visibility: visible;
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-    font-size: 1rem;
   }
   .l-header .main-nav .nav-menu .dropdown-menu .dropdown-submenu.active {
     position: static;
