@@ -388,7 +388,13 @@
 					@include media-query("screen", "onLargeTablet") {
 						display: flex;
 						justify-content: flex-end;
-						padding-right: 10px;
+						padding-right: 25px;
+					}
+
+					@include media-query("screen", "onLargeMobile") {
+						display: flex;
+						justify-content: flex-end;
+						padding-right: 15px;
 					}
 
 					&:last-child > a {
@@ -411,6 +417,8 @@
 						}
 
 						@include media-query("screen", "onLargeTablet") {
+							height: auto;
+							width: 100%;
 							align-items: flex-end;
 						}
 
@@ -426,7 +434,7 @@
 								height: 10px;
 
 								@include media-query("screen", "onLargeTablet") {
-									transform: rotate(90deg);
+									transform: rotate(180deg);
 									right: initial;
 									left: 5px;
 								}
@@ -479,7 +487,27 @@
 					transform-origin: 0 0 0;
 					visibility: hidden;
 					z-index: -10;
-					transition: all .4s ease-in-out, visibility 0s linear .4s, z-index 0s linear 0.01s;
+					transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method 0.01s;
+
+					@include media-query("screen", "onLargeTablet") {
+						margin-top: 0;
+						width: 100%;
+						padding: 0;
+						border-top: 1px solid $more-deeper-purple;
+						box-shadow: initial;
+						opacity: .9;
+						position: static;
+						visibility: visible;
+						transform: scaleY(1);
+						font-size: 1rem;
+	
+						&.active {
+							position: static;
+							visibility: visible;
+							transform: scaleY(1);
+							transition-delay: 0s, 0s, .3s;
+						}
+					}
 				}
 			}
 		}

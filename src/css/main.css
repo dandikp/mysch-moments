@@ -722,7 +722,19 @@ input, textarea {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    padding-right: 10px;
+    padding-right: 25px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .l-header .main-nav .nav-menu .dropdown-menu li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    padding-right: 15px;
   }
 }
 
@@ -757,6 +769,8 @@ input, textarea {
 
 @media only screen and (max-width: 960px) {
   .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper {
+    height: auto;
+    width: 100%;
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
@@ -776,8 +790,8 @@ input, textarea {
 
 @media only screen and (max-width: 960px) {
   .l-header .main-nav .nav-menu .dropdown-menu li.dropdown-submenu--wrapper > a::after {
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
     right: initial;
     left: 5px;
   }
@@ -840,8 +854,33 @@ input, textarea {
           transform-origin: 0 0 0;
   visibility: hidden;
   z-index: -10;
-  -webkit-transition: all .4s ease-in-out, visibility 0s linear .4s, z-index 0s linear 0.01s;
-  transition: all .4s ease-in-out, visibility 0s linear .4s, z-index 0s linear 0.01s;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) 0.01s;
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1), visibility 0s cubic-bezier(0.86, 0, 0.07, 1) 0.4s, z-index 0s cubic-bezier(0.86, 0, 0.07, 1) 0.01s;
+}
+
+@media only screen and (max-width: 960px) {
+  .l-header .main-nav .nav-menu .dropdown-menu .dropdown-submenu {
+    margin-top: 0;
+    width: 100%;
+    padding: 0;
+    border-top: 1px solid #3c1053;
+    -webkit-box-shadow: initial;
+            box-shadow: initial;
+    opacity: .9;
+    position: static;
+    visibility: visible;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    font-size: 1rem;
+  }
+  .l-header .main-nav .nav-menu .dropdown-menu .dropdown-submenu.active {
+    position: static;
+    visibility: visible;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transition-delay: 0s, 0s, .3s;
+            transition-delay: 0s, 0s, .3s;
+  }
 }
 
 .l-header .mobile-actions {

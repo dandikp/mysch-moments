@@ -16,12 +16,6 @@
 	var submenuLink = document.getElementsByClassName('dropdown-menu--wrapper');
 	var stickyHeaderPos = 152;
 
-	// window.scroll({
-	// 	top: 0,
-	// 	let: 0,
-	// 	behavior: 'smooth'
-	// });
-
 	window.addEventListener('scroll', function () {
 		let scrollPos = window.scrollY;
 
