@@ -412,7 +412,6 @@
 
 						@include media-query("screen", "onlyDesktop") {
 							&:hover .dropdown-submenu, &:focus .dropdown-submenu, &:focus-within .dropdown-menu {
-								position: relative;
 								visibility: visible;
 								opacity: 1;
 								z-index: 160;
