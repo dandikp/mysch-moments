@@ -191,7 +191,7 @@
 			height: 95vh;
 			transition: all $animation-method, visibility 0s $animation-time-method .4s, z-index 0s $animation-time-method .1s;
 
-			&.mobileMenuWasOpened {
+			&.is-mobile-menu-open {
 				z-index: 80;
 				visibility: visible;
 				transform: scaleY(1);

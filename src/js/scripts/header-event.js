@@ -63,12 +63,12 @@
 
 		if (hamburgerIsActive) {
 			mobileMenuButton.classList.remove('active');
-			mainContent.classList.remove('mobileMenuWasOpened');
-			mainNavigation.classList.remove('mobileMenuWasOpened');
+			mainContent.classList.remove('is-mobile-menu-open');
+			mainNavigation.classList.remove('is-mobile-menu-open');
 		} else {
 			mobileMenuButton.classList.add('active');
-			mainContent.classList.add('mobileMenuWasOpened');
-			mainNavigation.classList.add('mobileMenuWasOpened');
+			mainContent.classList.add('is-mobile-menu-open');
+			mainNavigation.classList.add('is-mobile-menu-open');
 
 			if (!headerIsSticky) {
 				lHeaderWrapper.classList.add('sticky');

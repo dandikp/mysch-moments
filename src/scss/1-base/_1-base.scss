@@ -19,7 +19,7 @@ body {
 	padding: 0;
 	color: $text-color;
 
-	&.mobileMenuWasOpened {
+	&.is-mobile-menu-open {
 		position: fixed;
 		overflow: hidden;
 		height: auto;
