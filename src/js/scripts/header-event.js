@@ -3,18 +3,18 @@
 	'use strict';
 
 	var mainContent = document.body;
-	var lHeaderWrapper = document.getElementsByClassName('l-header--wrapper')[0];
+	var lHeaderWrapper = document.getElementsByClassName('l-header_wrapper')[0];
 	var lHeader = document.getElementById('js-l-header');
 	var mainNavigation = document.getElementById('js-main-nav');
 	var mobileMenuButton = document.getElementsByClassName('mobile-nav-button')[0];
 	var mobileSearchButton = document.getElementsByClassName('mobile-search-button')[0];
 	var searchButton = document.getElementsByClassName('search-button')[0];
-	var searchWrapper = document.getElementsByClassName('search-form--wrapper')[0];
+	var searchWrapper = document.getElementsByClassName('search-form_wrapper')[0];
 	var searchInput = document.getElementById('js-search-el');
-	var logo = document.getElementsByClassName('main-logo--image normal')[0];
-	var logoSticky = document.getElementsByClassName('main-logo--image sticky')[0];
-	var submenuLink = document.getElementsByClassName('dropdown-menu--wrapper');
-	var subSubmenuLink = document.getElementsByClassName('dropdown-submenu--wrapper');
+	var logo = document.getElementsByClassName('main-logo_image normal')[0];
+	var logoSticky = document.getElementsByClassName('main-logo_image sticky')[0];
+	var submenuLink = document.getElementsByClassName('dropdown-menu_wrapper');
+	var subSubmenuLink = document.getElementsByClassName('dropdown-submenu_wrapper');
 	var stickyHeaderPos = 152;
 
 	window.addEventListener('scroll', function () {
