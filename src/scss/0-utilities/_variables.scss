@@ -4,6 +4,10 @@ $black: #202124;
 $grey: #5f6368;
 $black-alt: #212121;
 
+$gradients: () !default;
+
+// Gradients
+
 // Gradient 1
 $deep-purple: #673ab7;
 $deeper-purple: #512da8;
@@ -14,6 +18,13 @@ $more-deeper-purple: #3c1053;
 $soft-violet: #8e2de2;
 $indigo: #4a00e0;
 
+$gradients: map-merge((
+	"purple-1": ($deep-purple, $deeper-purple),
+	"purple-2": ($violet, $more-deeper-purple),
+	"purple-3": ($soft-violet, $indigo)
+), $gradients);
+
+// Prime Colors
 $body-color: $white;
 $link-color: $black-alt;
 $text-color: $grey;
