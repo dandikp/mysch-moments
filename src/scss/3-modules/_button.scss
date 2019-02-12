@@ -1,0 +1,54 @@
+.button {
+	position: relative;
+	display: inline;
+	padding: 10px 21px;
+	border-radius: 1142px;
+	background: $white;
+	transition: all $animation-method;
+	transition-delay: .2s;
+	color: $more-deeper-purple;
+	margin: 2px 8px;
+
+	span {
+		display: block;
+		position: relative;
+		text-align: center;
+	}
+
+	@each $index, $value in $gradients {
+		&.-#{$index} {
+			background-image: linear-gradient(to right, unquote(get-gradient($index)));
+			color: $white;
+			opacity: 1;
+
+			&:hover, &:focus, &:focus-within {
+				opacity: .8;
+				background-image: linear-gradient(to left, unquote(get-gradient($index)));
+			}
+		}
+
+		&.-border-#{$index} {
+			color: $more-deeper-purple;
+			background-image: linear-gradient(to right, unquote(get-gradient($index)));
+			opacity: 1;
+
+			&:hover, &:focus, &:focus-within {
+				opacity: .8;
+				background-image: linear-gradient(to left, unquote(get-gradient($index)));
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: calc(100% - 4px);
+				height: calc(100% - 4px);
+				top: 2px;
+				right: 2px;
+				bottom: 2px;
+				left: 2px;
+				background: $white;
+				border-radius: 1142px;
+			}
+		}
+	}
+}
