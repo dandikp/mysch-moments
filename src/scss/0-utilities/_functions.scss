@@ -28,8 +28,25 @@
 		"onDesktop": "(max-width: #{map-get($screen-breakpoints, "desktop")})",
 		"onLargeDesktop": "(min-width: #{map-get($screen-breakpoints, "desktop") + 1px })",
 		"onWidescreen": "(min-width: #{map-get($screen-breakpoints, "widescreen")})",
-		"onlyDesktop": "(min-width: #{map-get($screen-breakpoints, "desktop")})"
+		"onlyDesktop": "(min-width: #{map-get($screen-breakpoints, "tablet-large") + 1px })"
 	);
 
 	@return map-get($conditions, $media-condition);
+}
+
+@function get-gradient($gradient-index) {
+	$gradient-color: '';
+	$gradient-colors: map-get($gradients, $gradient-index);
+
+	@each $gradient in $gradient-colors {
+		$separators: '';
+
+		@if ($gradient-color != '') {
+			$separators: ", ";
+		}
+
+		$gradient-color: $gradient-color + $separators + $gradient;
+	}
+
+	@return $gradient-color;
 }
