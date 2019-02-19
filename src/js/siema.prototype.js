@@ -3,9 +3,9 @@ Siema.prototype.attachResizeEvent = attachResizeEvent;
 
 Siema.prototype.startHeadSlider = startHeadSlider;
 
-// Siema.prototype.headSlideTouchstartHandler = headSlideTouchstartHandler;
-// Siema.prototype.headSlideTouchendHandler = headSlideTouchendHandler;
-// Siema.prototype.headSlideTouchmoveHandler = headSlideTouchmoveHandler;
+Siema.prototype.headSlideTouchstartHandler = headSlideTouchstartHandler;
+Siema.prototype.headSlideTouchendHandler = headSlideTouchendHandler;
+Siema.prototype.headSlideTouchmoveHandler = headSlideTouchmoveHandler;
 
 Siema.prototype.headSlideMousedownHandler = headSlideMousedownHandler;
 Siema.prototype.headSlideMouseupHandler = headSlideMouseupHandler;
@@ -55,9 +55,9 @@ function startHeadSlider() {
 	var vm = this;
 
 	// Touch Listener
-	// vm.selector.addEventListener('touchstart', vm.touchstartHandler);
-	// vm.selector.addEventListener('touchend', vm.touchendHandler);
-	// vm.selector.addEventListener('touchmove', vm.touchmoveHandler);
+	vm.selector.addEventListener('touchstart', vm.headSlideTouchstartHandler.bind(vm), false);
+	vm.selector.addEventListener('touchend', vm.headSlideTouchendHandler.bind(vm), false);
+	vm.selector.addEventListener('touchmove', vm.headSlideTouchmoveHandler.bind(vm), false);
 
 	// Mouse Listener
 	vm.selector.addEventListener('mousedown', vm.headSlideMousedownHandler.bind(vm), false);
@@ -71,19 +71,47 @@ function startHeadSlider() {
 }
 
 function headSlideTouchstartHandler(event) {
+	var vm = this;
+
+	// Prevent dragging / swiping on inputs, selects and textareas
+	const ignoreSiema = ['TEXTAREA', 'OPTION', 'INPUT', 'SELECT'].indexOf(event.target.nodeName) !== -1;
+	if (ignoreSiema) return;	
+
 	event.stopPropagation();
-	this.pointerDown = true;
-	console.table(event.touches[0].pageX, event.touches[0].pageY);
+
+	vm.pointerDown = true;
+	vm.drag.startX = event.touches[0].pageX;
+	vm.drag.startY = event.touches[0].pageY;
 }
 
 function headSlideTouchendHandler(event) {
-	console.log('touchend: ', event);
+	var vm = this;
+
 	event.stopPropagation();
+
+	vm.pointerDown = false;
+
+	if (vm.drag.endX) {
+		vm.headSlideUpdateAfterDrag();
+	}
+
+	vm.clearDrag();
 }
 
 function headSlideTouchmoveHandler(event) {
-	console.log('touchmove: ', event);
+	var vm = this;
+
 	event.stopPropagation();
+
+	if (vm.drag.letItGo === null) {
+		vm.drag.letItGo = Math.abs(vm.drag.startY - event.touches[0].pageY) < Math.abs(vm.drag.startX - event.touches[0].pageX);
+	}
+
+	if (vm.pointerDown && vm.drag.letItGo) {
+		event.preventDefault();
+
+		vm.drag.endX = event.touches[0].pageX;
+	}
 }
 
 function headSlideMousedownHandler(event) {
@@ -91,9 +119,7 @@ function headSlideMousedownHandler(event) {
 
 	// Prevent dragging / swiping on inputs, selects and textareas
 	const ignoreSiema = ['TEXTAREA', 'OPTION', 'INPUT', 'SELECT'].indexOf(event.target.nodeName) !== -1;
-	if (ignoreSiema) {
-		return;
-	}
+	if (ignoreSiema) return;
 
 	event.preventDefault();
 	event.stopPropagation();
