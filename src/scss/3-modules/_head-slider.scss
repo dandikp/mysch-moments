@@ -3,185 +3,10 @@
 	display: block;
 	width: 100%;
 	height: 100vh;
-	transition: all .4s cubic-bezier(0.86, 0, 0.07, 1);
+	transition: all $animation-method;
 
 	&::after {
 		content: '';
-	}
-
-	.head-slide {
-		position: relative;
-		top: 0;
-		left: 0;
-		display: block;
-		height: 100vh;
-		width: 100%;
-		opacity: 1 !important;
-		text-align: center;
-		padding-top: $nav-height;
-		transition: all .4s cubic-bezier(0.86, 0, 0.07, 1);
-
-		&_background {
-			opacity: 1;
-			transition-duration: 1.2s;
-			transition-delay: .45s;
-			transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
-			backface-visibility: hidden;
-			animation: head-slider-in 2s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-
-			&_wrapper {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				transform: translate3d(0px, 0px, 0px);
-				overflow: hidden;
-				backface-visibility: hidden;
-				padding-top: 9rem;
-			}
-
-			&_container {
-				opacity: 1;
-				transition-delay: 0;
-				position: relative;
-				text-align: left;
-
-				&.-overflow {
-					overflow: hidden;
-				}
-
-				@include media-query("screen", "onlyDesktop") {
-					height: calc(100% - 9rem);
-				}
-			}
-
-			&.-small {
-				top: -9rem !important;
-				right: -9rem !important;
-				bottom: -9rem !important;
-				left: -9rem !important;
-				opacity: 1;
-				transition-duration: 1.2s;
-				transition-delay: .45s;
-				transition-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
-				animation: head-slider-in 1.9s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-			}
-
-			&.-animate-in {
-				animation: head-slider-in 2s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-			}
-
-			&.-animate-out {
-				animation: head-slider-out 2s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-			}
-
-			&.-animate-in-reverse {
-				animation: head-slider-in-reverse 2s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-			}
-
-			&.-animate-out-reverse {
-				animation: head-slider-out-reverse 2s cubic-bezier(0.86, 0, 0.07, 1) 0s forwards;
-			}
-		}
-
-		&_desc {
-			height: 100%;
-			display: flex;
-			flex-wrap: nowrap;
-			justify-content: center;
-			align-items: center;			
-			overflow: hidden;
-
-			&_wrapper {
-				position: relative;
-				text-align: left;
-				opacity: 1;
-				transition-delay: 0s;
-				font-family: "Nunito", "OpenSans", Helvetica, sans-serif;
-
-				&.-opacity  {
-					transition-delay: opacity 0 .6s;
-				}
-
-				&_layout {
-					text-align: left;
-				}
-
-				@include media-query("screen", "onlyDesktop") {
-					height: calc(100% - 4.5rem);
-					margin-top: 1rem;
-				}
-
-				@include media-query("screen", "onLargeTablet") {
-					margin-right: 24px;
-					margin-left: 24px;
-					height: calc(100% - #{$nav-tablet-height});
-				}
-
-				@include media-query("screen", "onLargeMobile") {
-					margin-right: 24px;
-					margin-left: 24px;
-					height: calc(100% - #{$nav-mobile-height});
-				}
-			}
-
-			&_container {
-				height: 100%;
-				width: 100%;
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: center;
-				align-items: center;
-				color: $white;
-
-				> div {
-					display: inline-flex;
-				}
-			}
-		}
-
-		&_title {
-			font-size: 2.1rem;
-			font-weight: 700;
-			letter-spacing: .031rem;
-			margin: 5px 0;
-			transform: translateX(0);
-			animation: side-slide-in 1.2s linear 0s forwards;
-
-			span {
-				display: block;
-				text-align: center;
-			}
-
-			@include media-query("screen", "onLargeMobile") {
-				font-size: 1.9rem;
-			}
-
-			@include media-query("screen", "onLargeMobile") {
-				font-size: 1.7rem;
-			}
-		}
-
-		&_button-wrapper {
-			margin: 5px 0;
-
-			@include media-query("screen", "onLargeMobile") {
-				display: flex;
-				flex-flow: column nowrap;
-			}
-		}
-
-		&_text {
-			display: block;
-			margin: 5px 0;
-			animation: side-slide-in-reverse 1.2s linear 0s forwards;
-
-			span {
-				display: block;
-				text-align: center;
-			}
-		}
 	}
 
 	&_wrapper {
@@ -229,6 +54,194 @@
 
 		&.-full {
 			height: 100%;
+		}
+	}
+}
+
+.head-slide {
+	position: relative;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 100vh;
+	width: 100%;
+	opacity: 1 !important;
+	text-align: center;
+	padding-top: $nav-height;
+	transition: opacity 0s .45s !important;
+	opacity: 1 !important;
+
+	&_background {
+		backface-visibility: hidden;
+		opacity: 0;
+		transition: transform 1s cubic-bezier(0.23, 1, 0.320, 1), opacity .6s cubic-bezier(0.23, 1, 0.320, 1);
+		transition-delay: 0s, .9s;
+		transform: scale(1.6) rotate(8deg);
+
+		&_wrapper {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			transform: translate3d(0px, 0px, 0px);
+			overflow: hidden;
+			backface-visibility: hidden;
+			padding-top: 9rem;
+		}
+
+		&_container {
+			transition-delay: 0;
+			position: relative;
+			text-align: left;
+
+			&.-overflow {
+				overflow: hidden;
+			}
+
+			@include media-query("screen", "onlyDesktop") {
+				height: calc(100% - 9rem);
+			}
+		}
+
+		&.-small {
+			top: -9rem !important;
+			right: -9rem !important;
+			bottom: -9rem !important;
+			left: -9rem !important;
+			transform: scale(1.2) rotate(-7deg);
+		}
+	}
+
+	&_desc {
+		height: 100%;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;			
+		overflow: hidden;
+
+		&_wrapper {
+			position: relative;
+			text-align: left;
+			opacity: 1;
+			transition-delay: 0s;
+			font-family: "Nunito", "OpenSans", Helvetica, sans-serif;
+
+			&.-opacity  {
+				transition-delay: opacity 0 .6s;
+			}
+
+			&_layout {
+				text-align: left;
+			}
+
+			@include media-query("screen", "onlyDesktop") {
+				height: calc(100% - 4.5rem);
+				margin-top: 1rem;
+			}
+
+			@include media-query("screen", "onLargeTablet") {
+				margin-right: 24px;
+				margin-left: 24px;
+				height: calc(100% - #{$nav-tablet-height});
+			}
+
+			@include media-query("screen", "onLargeMobile") {
+				margin-right: 24px;
+				margin-left: 24px;
+				height: calc(100% - #{$nav-mobile-height});
+			}
+		}
+
+		&_container {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: center;
+			align-items: center;
+			color: $white;
+
+			> div {
+				display: inline-flex;
+			}
+		}
+	}
+
+	&_title {
+		font-size: 2.1rem;
+		font-weight: 700;
+		letter-spacing: .002em;
+		margin: 5px 0;
+		transform: translateX(-200%);
+		transition: transform .5s linear;
+		transition-delay: .1s;
+
+		span {
+			display: block;
+			text-align: center;
+		}
+
+		@include media-query("screen", "onLargeMobile") {
+			font-size: 1.9rem;
+		}
+
+		@include media-query("screen", "onLargeMobile") {
+			font-size: 1.7rem;
+		}
+	}
+
+	&_button-wrapper {
+		margin: 5px 0;
+		opacity: 0;
+		transition: opacity .4s linear 0s;
+		transition-delay: .1s;
+
+		@include media-query("screen", "onLargeMobile") {
+			display: flex;
+			flex-flow: column nowrap;
+		}
+	}
+
+	&_text {
+		display: block;
+		margin: 5px 0;
+		transition: opacity .4s linear;
+		opacity: 0;
+		transition-delay: .1s;
+
+		span {
+			display: block;
+			text-align: center;
+		}
+	}
+
+	&.is-active & {
+		&_background, &_background.-small {
+			opacity: 1;
+			transform: scale(1) rotate(0);
+			transition-duration: 1.2s;
+			transition-delay: .45s;
+			transition-timing-function: cubic-bezier(.23,1,.32,1);
+		}
+
+		&_title {
+			transition-duration: 1.2s;
+			transition-delay: .25s;
+			transform: translateX(0);
+		}
+
+		&_text {
+			transition-duration: 1.2s;
+			transition-delay: .25s;
+			opacity: 1;
+		}
+
+		&_button-wrapper {
+			transition-duration: 1.2s;
+			transition-delay: .25s;
+			opacity: 1;
 		}
 	}
 }
