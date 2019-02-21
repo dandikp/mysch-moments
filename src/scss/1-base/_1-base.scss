@@ -1,7 +1,6 @@
 @import 'minireset';
 
 html {
-	overflow-x: hidden;
 	padding: 0;
 	scroll-behavior: smooth;
 }
@@ -21,8 +20,8 @@ body {
 
 	&.is-mobile-menu-open {
 		position: fixed;
-		overflow: hidden;
-		height: auto;
+		overflow-x: hidden;
+		height: 100%;
 		width: 100%;
 		z-index: 0;
 	}

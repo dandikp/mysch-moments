@@ -300,7 +300,6 @@ th {
 }
 
 html {
-  overflow-x: hidden;
   padding: 0;
   scroll-behavior: smooth;
 }
@@ -321,8 +320,8 @@ body {
 
 body.is-mobile-menu-open {
   position: fixed;
-  overflow: hidden;
-  height: auto;
+  overflow-x: hidden;
+  height: 100%;
   width: 100%;
   z-index: 0;
 }
@@ -1367,6 +1366,7 @@ input, textarea {
   height: 100vh;
   -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
   transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  overflow-x: hidden;
 }
 
 .m-head-slider::after {

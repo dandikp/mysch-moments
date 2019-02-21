@@ -18,6 +18,7 @@
 	var stickyHeaderPos = 152;
 
 	window.addEventListener('scroll', function () {
+		
 		let scrollPos = window.scrollY;
 
 		if (scrollPos  >= stickyHeaderPos) {

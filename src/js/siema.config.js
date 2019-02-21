@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-		
+
 	// Head Slider
 	var siemaHeadSlider = new Siema({
 		selector: '.js-head-slider',
@@ -11,5 +11,6 @@
 	});
 
 	siemaHeadSlider.detachEvents();
+	siemaHeadSlider.attachResizeEvent();
 	siemaHeadSlider.startHeadSlider();
 })();
