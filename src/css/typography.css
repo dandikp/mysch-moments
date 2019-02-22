@@ -225,15 +225,15 @@
 @font-face {
   font-family: "OpenSans";
   font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/OpenSans/OpenSans-700-Normal.eot?") format("eot"), url("../fonts/OpenSans/OpenSans-700-Normal.woff2") format("woff2"), url("../fonts/OpenSans/OpenSans-700-Normal.woff") format("woff");
+  font-weight: 600;
+  src: url("../fonts/OpenSans/OpenSans-600-Normal.eot?") format("eot"), url("../fonts/OpenSans/OpenSans-600-Normal.woff2") format("woff2"), url("../fonts/OpenSans/OpenSans-600-Normal.woff") format("woff");
 }
 
 @font-face {
   font-family: "OpenSans";
   font-style: italic;
-  font-weight: 700;
-  src: url("../fonts/OpenSans/OpenSans-700-Italic.eot?") format("eot"), url("../fonts/OpenSans/OpenSans-700-Italic.woff2") format("woff2"), url("../fonts/OpenSans/OpenSans-700-Italic.woff") format("woff");
+  font-weight: 600;
+  src: url("../fonts/OpenSans/OpenSans-600-Italic.eot?") format("eot"), url("../fonts/OpenSans/OpenSans-600-Italic.woff2") format("woff2"), url("../fonts/OpenSans/OpenSans-600-Italic.woff") format("woff");
 }
 
 @font-face {
