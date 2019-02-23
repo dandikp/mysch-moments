@@ -304,6 +304,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   overflow-x: hidden;
   font-family: "OpenSans", "Helvetica Neue", Helvetica, sans-serif;
@@ -315,7 +320,7 @@ body {
   line-height: 1.2;
   background: #fff;
   padding: 0;
-  color: #5f6368;
+  color: #212121;
 }
 
 body.is-mobile-menu-open {
@@ -326,14 +331,18 @@ body.is-mobile-menu-open {
   z-index: 0;
 }
 
-a {
-  text-decoration: none;
-  color: #212121;
-}
-
 ::selection {
   background: #8e2de2;
   color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nunito", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
 }
 
 input, textarea {
@@ -1802,4 +1811,201 @@ input, textarea {
   left: 2px;
   background: #fff;
   border-radius: 1142px;
+}
+
+.m-post-article {
+  outline: 0;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.m-post-article::before, .m-post-article::after {
+  content: ' ';
+  clear: both;
+}
+
+.m-post-article_wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.article {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.article > .article_section {
+  position: relative;
+  clear: both;
+}
+
+.article_content {
+  width: 100%;
+  max-width: 780px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.article_graf.-figure {
+  position: relative;
+  clear: both;
+  outline: 0;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+      -ms-user-select: auto;
+          user-select: auto;
+  z-index: 50;
+}
+
+.article_graf.-figure.-after-h3 {
+  margin-top: 24px;
+}
+
+.article_graf.-figure.-after-p {
+  margin-top: 28px;
+}
+
+.article_graf.-h3 {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .article_graf.-h3 {
+    font-size: 25px;
+    line-height: 1.04;
+    letter-spacing: .15;
+  }
+}
+
+.article_graf.-h3.-after-p {
+  margin-top: 22px;
+}
+
+.article_graf.-h4 {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.article_graf.-p {
+  margin-bottom: 0;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.58;
+  font-size: 18px;
+  letter-spacing: -.003em;
+}
+
+@media only screen and (max-width: 576px) {
+  .article_graf.-p {
+    font-size: 16px;
+    line-height: 1.58;
+    letter-spacing: -.004em;
+  }
+}
+
+.article_graf.-p.-after-h3 {
+  margin-top: 10px;
+}
+
+.article_graf.-p.-after-p {
+  margin-top: 25px;
+}
+
+.article_graf.-title {
+  color: #673ab7;
+  padding-top: 20px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+@media only screen and (max-width: 576px) {
+  .article_graf.-title {
+    font-size: 28px;
+    line-height: 1.04;
+    letter-spacing: .15;
+  }
+}
+
+.article_graf.-layout-outset-left {
+  margin-left: -100px;
+  width: 55%;
+  float: left;
+  margin-right: 30px;
+  padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 960px) {
+  .article_graf.-layout-outset-left {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+    float: none;
+  }
+}
+
+.article_media {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background: #5f6368;
+}
+
+.article_media_image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 0;
+  z-index: 50;
+}
+
+.article_media-caption {
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 10px;
+  outline: 0;
+  text-align: center;
+  z-index: 55;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.article_markup.-anchor {
+  position: relative;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(40, 40, 40, 0.6);
+}
+
+.article_markup.-anchor::after {
+  content: '';
+  left: 0;
+  bottom: -2px;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #212121;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s;
+}
+
+.article_markup.-anchor:hover::after {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+.article::before, .article::after {
+  content: ' ';
+  clear: both;
 }

@@ -213,9 +213,6 @@ function headSlidePrev(howManySlides = 1) {
 		targetSlide = Math.max(currentSlide - howManySlides, 0);
 	}
 
-
-	console.log(targetSlide);
-
 	var prom = new Promise(function(callback) {
 		vm.innerElements[currentSlide].classList.remove('is-active');
 
@@ -257,8 +254,6 @@ function headSlideNext(howManySlides = 1) {
 	} else {
 		targetSlide = Math.min(currentSlide + howManySlides, vm.innerElements.length - vm.perPage);
 	}
-
-	console.log(targetSlide);
 
 	var prom = new Promise(function(callback) {
 		vm.innerElements[currentSlide].classList.remove('is-active');
