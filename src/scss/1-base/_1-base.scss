@@ -3,6 +3,10 @@
 html {
 	padding: 0;
 	scroll-behavior: smooth;
+
+	* {
+		box-sizing: border-box;
+	}
 }
 
 body {
@@ -27,14 +31,18 @@ body {
 	}
 }
 
-a {
-	text-decoration: none;
-	color: $link-color;
-}
-
 ::selection {
 	background: $soft-violet;
 	color: $white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Nunito", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: $link-color;
 }
 
 input, textarea {
